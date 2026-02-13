@@ -1,0 +1,149 @@
+<?php 
+require_once "login secction/trava.php"; // Trava a página toda
+?>
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Esse e meu primeiro site">
+    <meta name="keywords" content="Edzyn,programador,mocambique, only, ONLY, only SHOP, only shop">
+    <meta name="author" content="Edzyn"> 
+    <link rel="stylesheet" href="Index.css">
+    <title>ONLY SHOP</title>
+
+    
+</style>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="topo">
+        
+        <nav>
+    <h1>ONLY
+     <span class="destaque">SHOP</span>
+   </h1>
+   <ul id="menu">
+                <il><a href="Cart.php"><img src="img/shopping-cart (1).png" alt="20px"></a>
+				<il> <a href="produtos.php"><img src="img/bolsa-de-compras.png" width="30"></a>
+			
+			
+			<button id="menu-btn" aria-expanded="false" aria-controls="dropdown-menu">☰</button>
+    </nav>
+
+    <div id="dropdown-menu" class="dropdown hidden" aria-hidden="true">
+    <div class="login-html">
+        <h2 class="destaque">Meu Perfil</h2>
+        
+        <div style="text-align: center; cursor: pointer;" onclick="window.location.href='profile.php';">
+            <img src="login secction/uploads/<?php echo $_SESSION['user_foto']; ?>" width="80" style="border-radius: 50%; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            
+            <h3 style="color: white; margin-top: 10px; transition: color 0.2s;" onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='white'"><?php echo $_SESSION['user_nome']; ?></h3>
+            <p style="color: #aaa; transition: color 0.2s;" onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#aaa'"><?php echo $_SESSION['user_email']; ?></p>
+        </div>
+
+        <div class="hr"></div>
+        
+        <a href="profile.php" class="button" style="display:block; text-align:center; margin-bottom: 10px;">📋 Ver Perfil Completo</a>
+        <a href="login secction/logout.php" class="button" style="display:block; text-align:center;">🚪 Sair da Conta</a>
+    </div>
+
+    
+    </div>
+    
+  
+    </header>
+ <main class="scroll-container">
+        <section class="reveal-section active" id="home">
+            <div class="content-box">
+                <h2 class="reveal-text">Bem-vindo ao Futuro.</h2>
+                <p class="reveal-subtext">A ONLY SHOP redefine o conceito de compras online.</p>
+            </div>
+            <div class="image-box">
+                <img src="img/apr.png" alt="Tech">
+            </div>
+        </section>
+
+        <section class="reveal-section" id="gamer">
+            <div class="content-box">
+                <h2 class="reveal-text">Domine o Jogo.</h2>
+                <p class="reveal-subtext">Periféricos de alta performance para quem não aceita menos que a vitória.</p>
+                <ul class="spec-list">
+                    <li>Teclados Mecânicos RGB</li>
+                    <li>Mouses de 26000 DPI</li>
+                    <li>Monitores 240Hz</li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800" alt="Gamer">
+            </div>
+        </section>
+
+        <section class="reveal-section" id="mobile">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800" alt="Smartphone">
+            </div>
+            <div class="content-box">
+                <h2 class="reveal-text">Conectividade Total.</h2>
+                <p class="reveal-subtext">Os iPhones e Androids mais potentes do mercado na palma da sua mão.</p>
+            </div>
+        </section>
+
+        <section class="reveal-section" id="laptop">
+            <div class="content-box">
+                <h2 class="reveal-text">Poder Portátil.</h2>
+                <p class="reveal-subtext">Laptops para edição de vídeo, programação e design pesado.</p>
+            </div>
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800" alt="Laptop">
+            </div>
+        </section>
+        <section class="reveal-section">
+      <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-column brand">
+            <h3>ONLY <span class="destaque">SHOP</span></h3>
+            <p>&copy; 2025 Todos os direitos reservados.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Apoio</h4>
+            <ul>
+                <li><a href="contactoINDEX.html">Ajuda</a></li>
+                
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Loja</h4>
+            <ul>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="produtos.html">Ofertas</a></li>
+                <li><a href="produtos.html">Novidades</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Gamer</h4>
+            <ul>
+                <li><a href="produtos.html">Consoles</a></li>
+                <li><a href="produtos.html">Acessórios</a></li>
+                <li><a href="produtos.html">PC Gaming</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>  
+</section>
+        </main>
+
+
+
+ 
+
+
+<script src="index1.js"></script>
+</body>
+</html>

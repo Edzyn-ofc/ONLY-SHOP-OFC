@@ -1,0 +1,860 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif; 
+} 
+
+ header { 
+    background-color: rgb(25, 40, 66); 
+    color: white; 
+    padding: 10px 20px;  
+    text-align:center; 
+    position: fixed;
+    width: 100%;
+    top: 0; 
+    left: 0; 
+    z-index: 1000; 
+    transition: 1.7s;
+
+} 
+
+
+
+/*corpo*/
+body { 
+    background-color: rgba(6, 7, 4, 0.527); 
+    color: #333; 
+    line-height: 1.6; 
+    background-image:url();
+    background-size: cover;
+    background-position:center;
+    backdrop-filter: blur(50px);
+}
+
+
+.destaque {
+    color: #ff6600;
+    background-color: transparent;
+    padding: 2px 8px;
+    border-radius: 20px 16px;
+    display: inline-block;
+    text-shadow:0px 0px 10px rgba(255, 255, 0, 0.7);
+    font-weight: 800;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 
+    0px 0px 10px #ff6600,
+    0px 0px 20px #ff6600,
+    0px 0px 30px #ff6600,
+    0px 0px 40px #ff6600;
+    
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 20px; 
+} 
+  
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-size: 18px; 
+    padding: 10px 5px; 
+    transition: 0.3s; 
+    text-align: right;
+} 
+ 
+nav a:hover { 
+    background: #9cacbb6e; 
+    border-radius: 5px; 
+} 
+
+/*parte do menu-*/
+.menu { 
+    list-style:none; 
+    display:flex; 
+    gap:14px; 
+    align-items:center;
+ }
+.menu a { 
+    color:#fff; 
+    text-decoration:none; 
+    display:inline-flex; 
+    align-items:center; 
+}
+#menu-btn { 
+    background:transparent; 
+    border:0; 
+    color:#fff; 
+    font-size:20px; 
+    cursor:pointer; }
+
+/* dropdown */
+.dropdown { 
+        position:absolute; 
+        right:18px; 
+        top:64px; 
+        background:#222;
+        border:1px solid rgba(255,255,255,0.06); 
+        padding:8px; 
+        border-radius:8px; 
+        min-width:200px; 
+        box-shadow:0 8px 30px rgba(0,0,0,0.6);
+     }
+.hidden { 
+    display:none; 
+}
+.dropdown ul {
+     list-style:none; 
+    }
+.dropdown li a { 
+    display:block; 
+    color:#fff; 
+    padding:8px 10px; 
+    text-decoration:none; 
+    border-radius:6px; 
+}
+.dropdown li a:hover { 
+    background: rgba(255,255,255,0.04); 
+}
+
+/* MAIN — espaço entre header e footer */
+main.main {
+  min-height: calc(100vh - 140px); /* header + footer */
+  padding-top: 92px; /* evita que o conteúdo fique por baixo do header */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle at 50% 10%, rgba(0,0,0,0.15), transparent 20%),
+              linear-gradient(180deg,#06121a, #07141a 60%);
+}
+
+
+
+@media (max-width: 768px) { 
+    nav { 
+        flex-direction: column; 
+        align-items: center; 
+    } 
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
+#dropdown-menu li a:hover {
+    background-color: #000000;
+}
+
+
+
+.scroll-container {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.reveal-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10%;
+    scroll-snap-align: start;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: var(--transition-slow);
+}
+
+.reveal-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-box {
+    flex: 1;
+    max-width: 500px;
+}
+
+.reveal-text {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease;
+}
+
+.image-box img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+
+/* Efeito de brilho nas bordas das seções */
+.reveal-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--primary), transparent);
+}
+
+/* Configuração para garantir que o footer fique embaixo */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-footer {
+    background-color: #0a0a0a; /* Cor padrão de sites famosos (quase preto) */
+    color: #ffffff;
+    padding: 40px 0 20px 0;
+    margin-top: auto; /* Empurra o footer para o fim da página */
+    border-top: 1px solid #333;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3, .footer-column h4 {
+    margin-bottom: 15px;
+    color: #ff6600; /* Usando a cor de destaque que você já tinha */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: auto;
+}
+
+.footer-column ul li a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.brand p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Animação de fundo */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Fica atrás de tudo */
+    background: linear-gradient(to bottom, #050505, #111b2d); 
+}
+
+/* Ajuste o body para ser transparente e mostrar o canvas */
+body {
+    background: transparent !important;
+}
+
+/* Deixe as caixas de conteúdo com um leve desfoque para destacar do fundo */
+.content-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+/* Esconde a barra para Chrome, Safari e Opera */
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconde a barra para Firefox e IE/Edge */
+.scroll-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.movie-credits-container {
+    height: 110vh;
+    width: 100%;
+    background-color: #000000 !important; /* Tudo escuro */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.credits-content {
+    text-align: center;
+    color: #ffffff; /* Coisas brancas */
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo filme */
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+.credits-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 50px;
+}
+
+.credits-block p {
+   text-size-adjust: 2px;
+    margin: 5px 0;
+}
+
+.credits-block h3 {
+    color: #fff; /* Destaque da Only Shop */
+    margin-top: 30px;
+}
+
+/* Classe que será animada pelo JS */
+.animate-scroll {
+    animation: scrollCredits 5s linear infinite; /* Velocidade maior */
+}
+
+@keyframes scrollCredits {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%); /* Sobe metade (que é um bloco completo) */
+    }
+}
+
+
+/* From Uiverse.io by ke1221 */ 
+.botao {
+    align-items: left;
+  color: #220606;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: url('index.html');
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.botao:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+.botao:hover{
+    color: #220606;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+}
+
+
+
+/* MAIN — espaço entre header e footer */
+main.main {
+  min-height: calc(100vh - 140px); /* header + footer */
+  padding-top: 92px; /* evita que o conteúdo fique por baixo do header */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle at 50% 10%, rgba(0,0,0,0.15), transparent 20%),
+              linear-gradient(180deg,#06121a, #07141a 60%);
+}
+
+
+
+/* footer */
+.site-footer {
+  height: 48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#cfd8dc;
+  background: linear-gradient(180deg, rgba(0,0,0,0.08), transparent);
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* responsividade */
+@media (max-width:420px) {
+  .product-card { width: 92%; }
+  .nav-wrap { gap:8px; }
+  #menu-btn { font-size:18px; }
+}
+
+
+
+/* Grid produtos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+.product {
+  background: #0e1621;
+  border-radius: 16px;
+  padding: 15px;
+  position: relative;
+  transition: transform .3s;
+  box-shadow: 0 0 25px rgba(255,0,0,0.08);
+}
+.product:hover {
+  transform: translateY(-6px);
+}
+
+/* Imagem */
+.product img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Texto */
+.product h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.product .price {
+  color: #17d0df;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Botão */
+.product button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Popup descrição */
+.tooltip {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  padding: 15px;
+  border-radius: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.product:hover .tooltip {
+  opacity: 1;
+}
+.product {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ====== RESPONSIVIDADE MELHORADA ====== */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+    .reveal-section {
+        padding: 0 5%;
+    }
+
+    .reveal-text {
+        font-size: 3rem;
+    }
+
+    .scroll-container {
+        height: 100vh;
+    }
+
+    .reveal-section {
+        flex-direction: column;
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .content-box {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .image-box img {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets em retrato */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 15px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav h1 {
+        font-size: 18px;
+    }
+
+    .reveal-text {
+        font-size: 2.2rem;
+    }
+
+    .reveal-subtext {
+        font-size: 14px;
+    }
+
+    .spec-list {
+        font-size: 14px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+
+    .product img {
+        height: 140px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-column {
+        margin-bottom: 25px;
+    }
+
+    .scroll-container {
+        height: 100vh;
+    }
+}
+
+/* Celulares grandes */
+@media (max-width: 600px) {
+    header {
+        padding: 6px 10px;
+    }
+
+    nav h1 {
+        font-size: 16px;
+    }
+
+    #menu-btn {
+        font-size: 18px;
+    }
+
+    nav ul {
+        gap: 8px;
+    }
+
+    #dropdown-menu {
+        right: 10px;
+        top: 50px;
+        width: calc(100% - 20px);
+    }
+
+    .reveal-text {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .reveal-subtext {
+        font-size: 13px;
+    }
+
+    .spec-list {
+        font-size: 13px;
+        padding-left: 15px;
+    }
+
+    .spec-list li {
+        margin-bottom: 8px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+    }
+
+    .product {
+        padding: 12px;
+    }
+
+    .product img {
+        height: 120px;
+        margin-bottom: 8px;
+    }
+
+    .product h3 {
+        font-size: 14px;
+    }
+
+    .product .price {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .product button {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .content-box {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .image-box img {
+        max-width: 250px;
+    }
+
+    .scroll-container {
+        height: 100vh;
+    }
+
+    .reveal-section {
+        padding: 40px 15px;
+    }
+
+    main.main {
+        padding-top: 60px;
+    }
+
+    .footer-column h3,
+    .footer-column h4 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+        font-size: 13px;
+    }
+
+    .brand p {
+        font-size: 12px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    header {
+        padding: 5px 8px;
+    }
+
+    nav h1 {
+        font-size: 14px;
+    }
+
+    nav h1 .destaque {
+        font-size: 14px;
+    }
+
+    #menu-btn {
+        font-size: 16px;
+    }
+
+    nav ul li img {
+        width: 20px;
+    }
+
+    nav ul li a img {
+        width: 18px !important;
+    }
+
+    #dropdown-menu {
+        right: 8px;
+        top: 45px;
+        padding: 5px;
+    }
+
+    #dropdown-menu ul li {
+        padding: 6px 12px;
+    }
+
+    #dropdown-menu ul li a {
+        font-size: 13px;
+    }
+
+    #dropdown-menu ul li a img {
+        width: 16px;
+    }
+
+    .reveal-section {
+        padding: 30px 10px;
+        height: auto;
+    }
+
+    .reveal-text {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+
+    .reveal-subtext {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .spec-list {
+        font-size: 12px;
+        padding-left: 12px;
+    }
+
+    .spec-list li {
+        margin-bottom: 6px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 8px;
+    }
+
+    .product {
+        padding: 10px;
+    }
+
+    .product img {
+        height: 100px;
+        margin-bottom: 6px;
+    }
+
+    .product h3 {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .product .price {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .product button {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .content-box {
+        padding: 12px;
+    }
+
+    .image-box img {
+        max-width: 200px;
+    }
+
+    .footer-container {
+        padding: 0 10px;
+    }
+
+    .footer-column {
+        min-width: 100%;
+    }
+
+    .footer-column h3,
+    .footer-column h4 {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+
+    .brand p {
+        font-size: 11px;
+    }
+
+    main.main {
+        padding-top: 55px;
+    }
+}
+
+/* Ultra celulares */
+@media (max-width: 360px) {
+    nav h1 {
+        font-size: 12px;
+    }
+
+    .reveal-text {
+        font-size: 1.2rem;
+    }
+
+    .reveal-subtext {
+        font-size: 11px;
+    }
+
+    .spec-list {
+        font-size: 11px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product {
+        padding: 8px;
+    }
+
+    .product img {
+        height: 80px;
+    }
+
+    .product h3 {
+        font-size: 12px;
+    }
+}
+
+
+
